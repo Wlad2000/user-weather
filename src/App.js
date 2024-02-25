@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import SavedUsers from './pages/SavedUsers';
+import HomePage from './pages/HomePage';
+import './styles.css';
+import { Navigate, Route, Routes } from "react-router-dom";
 
-function App() {
+// main routes
+var pages = [
+  { name: "Random Users", path: "/", component: HomePage, icon: "" },
+  { name: "Saved Users", path: "/saved", component: SavedUsers, icon: "" },
+];
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div 
+      style={{
+        height: `${props.height}`,
+        width: '100%',
+        paddingTop:'40px'
+      }}
+    >
+    <Routes>
+      {pages.map((prop, key) => {
+        var ElementPage = prop.component;
+        return (
+            <Route
+                key={key}
+                path={prop.path}
+                element={
+                    <ElementPage />
+                }
+            />
+        );
+      })}
+      <Route path="*" element={<Navigate to={"/"} />} />
+    </Routes >
     </div>
   );
 }
