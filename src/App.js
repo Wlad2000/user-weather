@@ -15,7 +15,7 @@ function App(props) {
       style={{
         height: `${props.height}`,
         width: '100%',
-        paddingTop:'40px'
+        paddingTop:'50px'
       }}
     >
     <Routes>

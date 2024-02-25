@@ -52,7 +52,7 @@ const UserCard = (props) => {
     return (
         <div className="bg-gray-400 rounded-3xl shadow-2xl p-4 mb-4">
             <div className='flex flex-wrap mb-5'>
-                <img src={user.picture.large} alt="Profile" className=" w-13 border rounded-full mr-1 " />
+                <img src={user.picture.large} alt="Profile" className=" w-20 h-20 border rounded-full mr-3 " />
                 <div>
                     <div className='flex mb-3'>
                         <p className="font-bold mr-1">{user.name.first} {user.name.last}</p>
