@@ -6,8 +6,10 @@
 ****************************************************************************/
 import React from 'react'
 import { getWeatherIcon } from '../utils/util';
+import HourlyWeather from './HourlyWeather';
 
-const WeatherInfo = ({ weather, fullView }) => {
+const WeatherInfo = ({
+    weather, fullView, ...props }) => {
     if (!weather) return null;
     const { current_weather, hourly } = weather;
     if (!current_weather || !hourly) {
@@ -15,7 +17,9 @@ const WeatherInfo = ({ weather, fullView }) => {
     }
     const { icon, status, description } = getWeatherIcon(current_weather.weathercode);
     return (
-        <div className="grid grid-cols-12 gap-4 mb-2 p-2">
+        <div className="grid grid-cols-12 gap-4 mb-2 p-2 overflow-y-auto" style={{
+            width: props.width && props.width, height: props.height && props.height
+        }}>
             <div className="col-span-12 sm:col-span-8 ">
                 <div className="p-4 relative bg-blue-950 border border-gray-800 shadow-lg rounded-3xl">
                     <p className="h-14 w-14 text-5xl absolute top-5 right-3 text-green-400">{icon || ''}</p>
@@ -62,6 +66,9 @@ const WeatherInfo = ({ weather, fullView }) => {
                                 <p className="text-sm text-gray-400 font-medium ">Time of Observation</p>
                                 <p className="text-lg text-gray-100 font-medium "> {current_weather.time}</p>
                             </div>
+                        </div>
+                        <div className="col-span-12 sm:col-span-12">
+                            <HourlyWeather hourlyWeather={hourly} />
                         </div>
                     </>
                 )

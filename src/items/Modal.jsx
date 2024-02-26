@@ -9,7 +9,7 @@ import React from 'react'
 const Modal = (props) => {
     if (!props.isOpen) return null;
     return (
-        <div onClick={props.onClose} className="fixed inset-0 z-50 overflow-auto bg-gray-800 bg-opacity-75 flex justify-center items-center" >
+        <div onClick={props.onClose} className="fixed inset-0 z-50 overflow-auto bg-gray-800 bg-opacity-75 flex justify-center items-center mt-19" >
             <div
                 onClick={(e) => e.stopPropagation()} className="shadow-inner relative bg-gray-400 rounded-3xl p-8"
                 style={{

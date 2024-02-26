@@ -24,15 +24,15 @@ const HourlyWeather = ({ hourlyWeather }) => {
 
     return (
         <div className="bg-gray-200 rounded-lg drop-shadow-2xl p-4 rounded-xl">
-            <h2 className="text-xl text-gray-600 font-semibold mb-4">Today Hourly Weather Forecast</h2>
-            <div className='bg-gray-300'>
-                <div className="overflow-x-auto bg-gray-300 p-4 ml-20 rounded">
+            <h2 className="text-xl text-gray-600 font-semibold mb-4">Today Hourly Weather </h2>
+            <div className='bg-gray-300 relative rounded-xl'>
+                <div className="overflow-x-auto bg-gray-300 p-4 ml-20 rounded-xl">
                     <table className="min-w-full">
                         <thead >
                             <tr>
                                 <th className="px-5 py-2 text-xl absolute left-4 bg-gray-300 ">Time</th>
                                 {todayHourlyWeather.time.map((time, index) => (
-                                    <th key={index} className="px-2 py-1.5 text-xl">{time.slice(11, 16)}</th>
+                                    <th key={index} className="text-gray-600 px-2 py-1.5 text-xl">{time.slice(11, 16)}</th>
                                 ))}
                             </tr>
                         </thead>
@@ -40,7 +40,7 @@ const HourlyWeather = ({ hourlyWeather }) => {
                             <tr className=''>
                                 <td className="px-4 py-2 text-xl font-bold absolute left-4 bg-gray-300 border-t-2 ">Temp</td>
                                 {todayHourlyWeather.temperature_2m.map((temp, index) => (
-                                    <td key={index} className={`border-t-2 px-2 py-2 ${index % 2 === 0 ? "bg-gray-100" : ""}`}>{temp}°C</td>
+                                    <td key={index} className={` text-blue-900 text-l font-bold border-t-2 px-2 py-2 ${index % 2 === 0 ? "bg-gray-100" : ""}`}>{temp}°C</td>
                                 ))}
                             </tr>
                         </tbody>
